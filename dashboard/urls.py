@@ -8,7 +8,7 @@ urlpatterns = [
     path('add-book/', views.add_book, name='add_book'),
     path('search-book/', views.search_available_book, name='search_available_book'),
     path('view-available-books/', views.view_available_books, name='view_available_books'),
-    
+    path('update/<int:pk>', views.UpdateBookView.as_view(), name='update'),
     path('delete/<int:pk>', views.DeleteBookView.as_view(), name='delete'),
     
 ]

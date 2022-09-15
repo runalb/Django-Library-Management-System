@@ -1,0 +1,35 @@
+{% extends 'dashboard/base.html' %}
+{% block dashboardcontent %}
+
+<h3 class='text-center theme-color m-4'>Edit below details to update book</h3>
+
+<form method="post" >
+    {% csrf_token %}
+
+    <div class="form-group mx-4 mt-4">
+        <p>
+            <label for="id_book_name">Book name:</label>
+            <input type="text" value="{{form.book_name.value}}" name="book_name" class="form-control"  required id="id_book_name">
+        </p>
+        <p>
+            <label for="id_author_name">Author name:</label>
+            <input type="text" value="{{form.author_name.value}}" name="author_name" class="form-control"  required id="id_author_name">
+        </p>
+    </div>
+
+    
+    <div class="text-center">
+        <input type="submit" class="btn btn-danger" value="Confim Update">
+        <a href="{% url 'dashboard:view_available_books' %}">
+            <button type="button" class="btn btn-info">Cancel</button>
+        </a>
+    </div>
+</form>
+
+        
+{% endblock %}
+
+
+
+
+

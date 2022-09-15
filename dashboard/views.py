@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from .models import LibraryModel
 from .forms import SearchForm, AddBook
 from django.contrib.auth.decorators import login_required
-from django.views.generic import DeleteView
+from django.views.generic import DeleteView, UpdateView
 
 # Create your views here.
 
@@ -87,6 +87,14 @@ def view_available_books(request):
     return render(request,'dashboard/view_available_book.html',context=context)
 
 
+#update book
+class UpdateBookView(UpdateView):
+    model = LibraryModel
+    fields = ('book_name','author_name')
+    success_url = reverse_lazy("dashboard:view_available_books")
+    template_name = 'dashboard/update_book.html'
+    
+    
 
 
 
@@ -95,3 +103,4 @@ class DeleteBookView(DeleteView):
     template_name = 'dashboard/confim_delete_book.html'
     context_object_name = 'book'
     success_url = reverse_lazy("dashboard:view_available_books")
+

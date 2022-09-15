@@ -20,9 +20,11 @@
                         <td scope='row'>{{item.book_name}}</td>
                         <td scope='row'>{{item.author_name}}</td>
                         <td scope='row'>
-                            
-                            <button type="button" class="btn action-btn">Update - {{item.id}}</button>
-                            
+
+                            <a href="{% url 'dashboard:update' item.id %}">
+                                <button type="button" class="btn action-btn">Update - {{item.id}}</button>
+                            </a>
+
                             <a href="{% url 'dashboard:delete' item.id %}">
                                 <button type="button" class="btn btn-danger">Delete - {{item.id}}</button>
                             </a>
