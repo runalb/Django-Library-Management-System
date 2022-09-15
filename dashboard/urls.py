@@ -9,4 +9,6 @@ urlpatterns = [
     path('search-book/', views.search_available_book, name='search_available_book'),
     path('view-available-books/', views.view_available_books, name='view_available_books'),
     
+    path('delete/<int:pk>', views.DeleteBookView.as_view(), name='delete'),
+    
 ]

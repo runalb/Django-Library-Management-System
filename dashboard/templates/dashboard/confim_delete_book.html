@@ -1,0 +1,44 @@
+{% extends 'dashboard/base.html' %}
+{% block dashboardcontent %}
+
+<h3 class='text-center theme-color m-4'>Are you sure you want to delete?</h3>
+    <table class='table table-striped text-center'>
+        <thead>
+            <tr>
+                <th scope='col'>Book ID</th>
+                <th scope='col'>Book Name</th>
+                <th scope='col'>Author Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope='row'>{{book.id}}</th>
+                <td scope='row'>{{book.book_name}}</td>
+                <td scope='row'>{{book.author_name}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form method="post" class="text-center">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-danger" value="Confim Delete">
+        <a href="{% url 'dashboard:view_available_books' %}">
+            <button type="button" class="btn btn-info">Cancel</button>
+        </a>
+    </form>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

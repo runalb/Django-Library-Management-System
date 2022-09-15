@@ -3,12 +3,13 @@
 
     {% if all_books.count > 0 %}
 
-        <table class='table table-striped'>
+        <table class='table table-striped text-center'>
             <thead>
                 <tr>
                     <th scope='col'>Book ID</th>
                     <th scope='col'>Book Name</th>
                     <th scope='col'>Author Name</th>
+                    <th scope='col'>Action</th>
                 </tr>
             </thead>
             
@@ -18,6 +19,15 @@
                         <td scope='row'>{{item.id}}</th>
                         <td scope='row'>{{item.book_name}}</td>
                         <td scope='row'>{{item.author_name}}</td>
+                        <td scope='row'>
+                            
+                            <button type="button" class="btn action-btn">Update - {{item.id}}</button>
+                            
+                            <a href="{% url 'dashboard:delete' item.id %}">
+                                <button type="button" class="btn btn-danger">Delete - {{item.id}}</button>
+                            </a>
+                            
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>

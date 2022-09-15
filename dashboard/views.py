@@ -1,8 +1,9 @@
 from django.shortcuts import render, HttpResponse, redirect
+from django.urls import reverse_lazy
 from .models import LibraryModel
 from .forms import SearchForm, AddBook
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import DeleteView
 
 # Create your views here.
 
@@ -84,3 +85,13 @@ def view_available_books(request):
         }
             
     return render(request,'dashboard/view_available_book.html',context=context)
+
+
+
+
+
+class DeleteBookView(DeleteView):
+    model = LibraryModel
+    template_name = 'dashboard/confim_delete_book.html'
+    context_object_name = 'book'
+    success_url = reverse_lazy("dashboard:view_available_books")
