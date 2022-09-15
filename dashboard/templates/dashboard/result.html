@@ -3,8 +3,14 @@
 
 <h3 class='text-center m-4'>{{result}}</h3>
 
-<button class='btn action-btn btn-block' onclick="location.href={% url 'dashboard:dashboard_index' %}">Go Back</button>
+    {% if user.is_authenticated %}
+        <button class='btn action-btn btn-block' onclick="location.href={% url 'dashboard:dashboard_index' %}">Go Back</button>
         
+    {% else %}
+        <button class='btn action-btn btn-block' onclick="location.href={% url 'index' %}">Go Back</button>
+
+    {% endif %}
+
 {% endblock %}
 
 

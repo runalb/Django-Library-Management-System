@@ -6,13 +6,13 @@ from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
-
+@login_required
 def dashboard_index(request):
     return render(request,'dashboard/index.html',context={'title':'Dashboard'})
 
 
 
-
+@login_required
 def add_book(request):
     form = AddBook()
 
@@ -44,7 +44,7 @@ def add_book(request):
 
 
 # search_Book
-#@login_required
+@login_required
 def search_available_book(request):
     form = SearchForm()
 
@@ -70,3 +70,17 @@ def search_available_book(request):
         }
 
     return render(request,'dashboard/search_book.html',context=context)
+
+
+
+
+# view_available_book
+def view_available_books(request):
+
+    all_books = LibraryModel.objects.all()
+    context = {
+        'all_books' : all_books,
+        'title' : 'All Books',
+        }
+            
+    return render(request,'dashboard/view_available_book.html',context=context)

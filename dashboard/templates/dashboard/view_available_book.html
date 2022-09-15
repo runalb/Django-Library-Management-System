@@ -25,10 +25,13 @@
     
     {% else %}
         <h1 class='text-center'>No Books are thier to view....</h1>
-
     {% endif %}
     
-    <button class='btn action-btn btn-block' onclick="location.href={% url 'dashboard:dashboard_index' %}">Go Back</button>          
 
+    {% if user.is_authenticated %}
+        <button class='btn action-btn btn-block' onclick="location.href={% url 'dashboard:dashboard_index' %}">Go Back</button>
+    {% else %}
+        <button class='btn action-btn btn-block' onclick="location.href='{% url 'index' %}'">Go Back</button>
+    {% endif %}
 
 {% endblock %}
