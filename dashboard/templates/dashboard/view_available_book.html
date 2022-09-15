@@ -1,32 +1,30 @@
 {% extends 'dashboard/base.html' %}
 {% block dashboardcontent %}
 
-    {% if all_products.count > 0 %}
+    {% if all_books.count > 0 %}
 
         <table class='table table-striped'>
             <thead>
                 <tr>
-                    <th scope='col'>Product ID</th>
-                    <th scope='col'>Product Name</th>
-                    <th scope='col'>Product Price</th>
-                    <th scope='col'>Quantity</th>
+                    <th scope='col'>Book ID</th>
+                    <th scope='col'>Book Name</th>
+                    <th scope='col'>Author Name</th>
                 </tr>
             </thead>
             
             <tbody>
-                {% for item in all_products %}
+                {% for item in all_books %}
                     <tr>
                         <td scope='row'>{{item.id}}</th>
-                        <td scope='row'>{{item.product_name}}</td>
-                        <td scope='row'>{{item.product_price}}</td>
-                        <td scope='row'>{{item.product_quantity}}</td>
+                        <td scope='row'>{{item.book_name}}</td>
+                        <td scope='row'>{{item.author_name}}</td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
     
     {% else %}
-        <h1 class='text-center'>No Products are thier to view....</h1>
+        <h1 class='text-center'>No Books are thier to view....</h1>
 
     {% endif %}
     

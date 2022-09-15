@@ -1,15 +1,14 @@
 from django import forms
-from .models import Available_product_table
+from .models import LibraryModel
 
-class AddProductForm(forms.ModelForm):
-    product_name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Product Name'}))
-    product_price = forms.IntegerField(widget=forms.NumberInput(attrs={'class':'form-control','placeholder':'Enter Product Price'}))
-    product_quantity = forms.IntegerField(widget=forms.NumberInput(attrs={'class':'form-control','placeholder':'Enter Quantity'}))
+class AddBook(forms.ModelForm):
+    book_name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Book Name'}))
+    author_name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Author Name'}))
 
     class Meta():
-        model = Available_product_table
+        model = LibraryModel
         fields = '__all__'
 
 
 class SearchForm(forms.Form):
-    search_product = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Enter Product Name','class':'form-control my-0 py-1'}))
+    search_form = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Enter Book Name','class':'form-control my-0 py-1'}))
